@@ -27,13 +27,13 @@ def index():
             "hc" : hcForm ,
         }
 
-        urlToken = 'http://10.101.5.54:8001/'
+        urlToken = 'http://localhost:8001/'
         response = requests.get(urlToken, json=payload)
         data = response.json()
         token = data['token'] 
         headers = {'token': token}
 
-        url = 'http://10.101.5.54:8000/paciente/'
+        url = 'http://locahost:8000/paciente/'
         responsePatient = requests.post(url, json=payload, headers = headers)        
         
         return responsePatient.text
